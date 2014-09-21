@@ -2,6 +2,7 @@
 ## functions do
 
 ## Write a short comment describing this function
+## makeCacheMatrix builds the list and is called initially from outside the cacheSolve. Only post-initialization of the list, cacheSolve can call this function.
 
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
@@ -18,6 +19,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 ## Write a short comment describing this function
+## CacheSolve takes in a list and returns the inverse of the matrix
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
