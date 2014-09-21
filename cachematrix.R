@@ -1,8 +1,12 @@
-## Put comments here that give an overall description of what your
-## functions do
+## The below two functions create and reuse a list containing a matrix and its inverse. In a computationally intensive looping,
+## the below functions provide a reuse feature
+## Using the functions: initialize/create the list using a command line interface 
+## e.g., Step1: mat<-matrix(c(10,21,33,45),2,2) ; Step2: matrix_list<-makeCacheMatrix(mat);
+## Once the list is initialized, the cacheSolve function can use this list to either update the inverse of the matrix Or
+## reuse a previously computed inverse
 
-## Write a short comment describing this function
-## makeCacheMatrix builds the list and is called initially from outside the cacheSolve. Only post-initialization of the list, cacheSolve can call this function.
+## makeCacheMatrix creates the list and should be initially from outside the cacheSolve e.g., command line... 
+## ...Only post-creation of the CacheMatrix list, should cacheSolve invoke or attempt to reset the inverse of another matrix.
 
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
@@ -18,8 +22,9 @@ makeCacheMatrix <- function(x = matrix()) {
        getsolve = getsolve)
 }
 
-## Write a short comment describing this function
 ## CacheSolve takes in a list and returns the inverse of the matrix
+## The function attempts at retrieving the inverse from the Cache. In case the inverse is not present in the cache, the
+## function creates an inverse (using Solve()) and  updates the list (created initially using the makeCacheMatrix command)
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
